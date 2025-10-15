@@ -1,5 +1,8 @@
 # TestBlockchainWallet
 BlockchainWalletDemo 
+
+增加HD钱包代码
+
 如何使用Web3j开发一个以太坊钱包APP（Android ）
 
 Web3j是一个Java库，它提供了与以太坊区块链网络进行交互的工具和API。
