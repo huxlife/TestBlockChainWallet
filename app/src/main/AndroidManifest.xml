@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.liar.testwallet">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
         android:name="com.hux.testwallet.App"
+        android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -16,20 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestWallet"
         tools:targetApi="31">
-
+        <activity
+            android:name="com.hux.testwallet.HDWalletActivity"
+            android:exported="false" />
         <activity
             android:name="com.hux.testwallet.EthWalletActivity"
             android:exported="true">
+        </activity>
+        <activity android:name="com.hux.testwallet.MainActivity"   android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.hux.testwallet.MainActivity"/>
-
-
     </application>
 
 </manifest>

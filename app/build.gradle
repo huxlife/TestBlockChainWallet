@@ -28,11 +28,14 @@ android {
     }
 }
 
+
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    implementation 'androidx.activity:activity:1.8.0'
     testImplementation 'junit:junit:4.13.2'
 
 
@@ -40,6 +43,11 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     //以太坊依赖
     implementation ('org.web3j:core:4.8.7-android')
+
+//    implementation 'org.web3j:core:4.9.7'
+    implementation ('org.bitcoinj:bitcoinj-core:0.16.2'){
+        exclude group: 'org.bouncycastle'
+    } // 用于BIP39
 
     
 

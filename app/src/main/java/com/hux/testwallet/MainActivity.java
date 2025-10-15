@@ -22,4 +22,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EthWalletActivity.class);
         startActivity(intent);
     }
+
+    public void jumpEthHDWallet(View view) {
+        //跳转以太坊
+        Intent intent = new Intent(this, HDWalletActivity.class);
+        startActivity(intent);
+    }
 }

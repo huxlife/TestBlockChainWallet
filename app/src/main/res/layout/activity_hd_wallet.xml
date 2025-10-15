@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 网络状态和标题 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HD 钱包"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/network_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sepolia测试网络"
+                android:textSize="12sp"
+                android:background="@drawable/network_badge"
+                android:padding="8dp"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- 钱包操作区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_generate_wallet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="创建新钱包"
+                android:background="@drawable/button_primary"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btn_recover_wallet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="恢复钱包"
+                android:background="@drawable/button_secondary"
+                android:textColor="#666666" />
+        </LinearLayout>
+
+        <!-- 助记词显示区域 -->
+        <LinearLayout
+            android:id="@+id/mnemonic_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="助记词 (请妥善保管)"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/mnemonic_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:padding="12dp"
+                android:background="#f8f9fa"
+                android:textColor="#333333" />
+
+            <Button
+                android:id="@+id/btn_copy_mnemonic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="复制助记词"
+                android:background="@drawable/button_outline" />
+        </LinearLayout>
+
+        <!-- 恢复钱包输入区域 -->
+        <LinearLayout
+            android:id="@+id/recover_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="输入助记词"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <EditText
+                android:id="@+id/mnemonic_input"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="请输入12个助记词，用空格分隔"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:background="@drawable/edittext_background" />
+
+            <Button
+                android:id="@+id/btn_confirm_recover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="确认恢复"
+                android:background="@drawable/button_primary" />
+        </LinearLayout>
+
+        <!-- 当前钱包信息 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="当前地址"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/current_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未创建钱包"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:padding="8dp"
+                android:background="#f8f9fa"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="余额:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/current_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 ETH"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_refresh_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="刷新"
+                    android:background="@drawable/button_small" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 派生地址管理 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="派生地址"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_derive_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="派生新地址"
+                    android:background="@drawable/button_small" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/derived_addresses_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="暂无派生地址"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:padding="8dp"
+                android:gravity="center"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/derived_addresses_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 钱包信息导出 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="钱包信息"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_show_keystore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="显示KeyStore"
+                android:background="@drawable/button_outline" />
+
+            <Button
+                android:id="@+id/btn_show_private_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示私钥"
+                android:background="@drawable/button_outline" />
+
+            <TextView
+                android:id="@+id/keystore_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                android:background="#f8f9fa"
+                android:padding="8dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/private_key_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                android:background="#f8f9fa"
+                android:padding="8dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
